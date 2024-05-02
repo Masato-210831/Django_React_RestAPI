@@ -1,21 +1,25 @@
-import React, {useState} from 'react'
+import { useState } from "react"
 
 const Basic2 = () => {
 
   const [products, setProducts] = useState([])
- 
-  const newProduct = () => {
-    setProducts([...products, {id:products.length, name:'hello react'}])
-    // setProducts(products.push({id:products.length, name:'hello react'}))
+  console.log(products)
+  const newProducts = () => {
+    setProducts([...products, {
+      id : products.length,
+      name: 'Hello React'
+    }])
   }
-
+  
   return (
-    <div>
-      <button onClick={newProduct}>Add New Product</button>
+    <>
+      <button onClick={newProducts} >Add New Product</button>   
       <ul>
-        {products.map(product => <li key={product.id}>{product.name} id: {product.id}</li>)}
+        {products.map(product => (
+          <li key={product.id}>{product.name} id:{product.id}</li>
+        ))}
       </ul>
-    </div>
+    </>
   )
 }
 
